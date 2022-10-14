@@ -28,10 +28,11 @@ class weatherInfo{
 
 }
 
-
-app.get('/', (req , res) => {
-    callAPI("Dublin")
-})
+app.get('/', async (req, res) => {
+    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Dublin&appid=${API_KEY}`).then((response) => {
+      res.send(response.data);
+    })
+  })
 
 app.get('/rainfall' , (req , res) =>{
     res.send(callAPI("Dublin"));
