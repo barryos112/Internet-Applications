@@ -1,15 +1,56 @@
 
 const express = require('express')
-const { Server } = require('http')
+// const { Server } = require('http')
+const axios = require('axios');
+require('dotenv').config();
+
 const app = express()
-const port = 5000
+const port = 3000
 
-const path=require("path") 
-let publicPath= path.resolve(__dirname,"public") 
-app.use(express.static(publicPath))
+API_KEY = process.env.API_KEY;
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+class weatherInfo{
+   constructor(city){
+    this.city = city;
+    this.weather = {
+        main: "",
+        description: ""
+    }
+    this.location = {
+        longitude: 0,
+        latitude: 0
+}
+    this.temp = 0;
+    this.windSpeed = 0;
+    // this.airPollution = 0;
+   }
 
-app.get('/', function(req, res, next) {
-    res.send("Hello world");
-});
+
+}
+
+
+app.get('/', (req , res) => {
+    callAPI("Dublin")
+})
+
+app.get('/rainfall' , (req , res) =>{
+    res.send(callAPI("Dublin"));
+})
+
+app.listen(port, () => {
+    console.log('Listening')
+})
+
+async function callAPI(city){
+currentWeather = new weatherInfo(city)
+
+    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`).then((response) => {
+    data = response.data
+    console.log(data)
+    return currentWeather;
+
+        }).catch((e) => {
+        console.log("error!!!!")
+    })
+
+}
