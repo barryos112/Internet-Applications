@@ -1,4 +1,4 @@
-<!-- <div id="app">{{ message }}</div>
+<div id="app">{{ message }}</div>
 
 <script type="module">
   import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
@@ -7,27 +7,34 @@
     data() {
       return {
         message: "Hello Vue!",
-      };
-    },
-  }).mount("#app");
-</script> -->
-
-<script type="module">
-  import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
-
-  createApp({
-    data() {
-      return {
-        message: "Hello Vue!",
-        seen: true,
-        list: ["milk", "coffee", "water"],
       };
     },
   }).mount("#app");
 </script>
 
-<div id="app">
-  <p>{{message}}</p>
+<!-- Main container -->
+<div class="container">
+  <!-- This shall hold the input fields and the output data -->
+  <fieldset>
+    <!-- This form shall be used to fetch your city name -->
+    <form action="/" method="post">
+      <input
+        name="city"
+        type="text"
+        class="ghost-input"
+        placeholder="Enter a City"
+        required
+      />
+      <input type="submit" class="ghost-button" value="Get Weather" />
+    </form>
 
-  <span v-if="seen">Now you see me</span>
+    <!-- 
+<script>
+  fetch(`http://localhost:3000`)
+  .then((res) => {
+   this.message = res
+})
+
+</script> -->
+  </fieldset>
 </div>
