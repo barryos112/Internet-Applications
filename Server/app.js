@@ -29,7 +29,7 @@ class weatherInfo{
 }
 
 app.get('/', async (req, res) => {
-    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Dublin&appid=${API_KEY}`).then((response) => {
+    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Dublin&appid=${API_KEY}&units=metric`).then((response) => {
       res.send(response.data);
     })
   })
@@ -45,7 +45,7 @@ app.listen(port, () => {
 async function callAPI(city){
 currentWeather = new weatherInfo(city)
 
-    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`).then((response) => {
+    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`).then((response) => {
     data = response.data
     console.log(data)
     return currentWeather;
