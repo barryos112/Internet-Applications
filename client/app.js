@@ -3,13 +3,11 @@ const app = Vue.createApp({
   <Header/>
   <div id="content">
     <Search/>
-    <Information/>
   </div>
   `,
   components: {
     Header,
     Search,
-    Information
   }
 });
 
