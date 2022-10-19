@@ -1,61 +1,36 @@
-
-const express = require('express')
-// const { Server } = require('http')
+const express = require('express');
+const cors = require('cors');
 const axios = require('axios');
+
 require('dotenv').config();
 
-const app = express()
-const port = 3000
+const app = express();
+const PORT = 3000;
+const API_KEY = process.env.API_KEY;
 
-API_KEY = process.env.API_KEY;
+app.use(cors());
 
-class weatherInfo{
-   constructor(city){
-    this.city = city;
-    this.weather = {
-        main: "",
-        description: ""
-    }
-    this.location = {
-        longitude: 0,
-        latitude: 0
-}
-    this.temp = 0;
-    this.windSpeed = 0;
-    // this.airPollution = 0;
-   }
+app.listen(PORT, () => {
+  console.log(`Server is now listening on port ${port}`);
+})
 
-
-}
-
+// ------------
+// Controllers
+// ------------
 app.get('/', async (req, res) => {
-    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Dublin&appid=${API_KEY}&units=metric`).then((response) => {
-      res.send(response.data);
-    })
-  })
+  await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Dublin&appid=${API_KEY}&units=metric`)
+  .then((response) => {
+    res.send(response.data);
+  });
+});
 
-app.get('/rainfall' , async (req , res) =>{
-    let city = req.query.city
-    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Dublin&appid=${API_KEY}&units=metric`).then((response) => {
+
+app.get('/weather', async (req, res) => {
+  let city = req.query.city
+  await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+  .then((response) => {
     res.send(response.data.weather[0].main);
-})
-})
+  });
+});
 
-app.listen(port, () => {
-    console.log('Listening')
-})
-
-async function callAPI(city){
-currentWeather = new weatherInfo(city)
-
-    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`).then((response) => {
-    data = response.data
-    console.log(data)
-    return currentWeather;
-
-        }).catch((e) => {
-        console.log("error!!!!")
-    })
-
-}
 

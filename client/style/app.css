@@ -1,0 +1,10 @@
+#root {
+  font-family: system-ui;
+  margin: 0px;
+}
+
+#content {
+  max-width: 800px;
+  min-height: 800px;
+  margin: auto;
+}
