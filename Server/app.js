@@ -11,7 +11,7 @@ const API_KEY = process.env.API_KEY;
 app.use(cors());
 
 app.listen(PORT, () => {
-  console.log(`Server is now listening on port ${port}`);
+  console.log(`Server is now listening on port ${PORT}`);
 })
 
 // ------------
