@@ -2,7 +2,7 @@ const Header = {
   template: `
     <div class="header-wrapper">
       <div class="header-inner">
-        wApp
+        Weather Forecast and Packing Assistant
       </div>
     </div>
   `

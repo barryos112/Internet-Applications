@@ -1,6 +1,20 @@
 #root {
   font-family: system-ui;
   margin: 0px;
+  background-image: url('./Assets/weatherBG.jpeg');
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4s;
+}
+
+#root.warm{
+  font-family: system-ui;
+  margin: 0px;
+  background-image: url('./Assets/warmBG.jpeg');
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4s;
+
 }
 
 #content {

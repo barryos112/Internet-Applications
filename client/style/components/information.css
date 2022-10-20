@@ -1,7 +1,7 @@
 .information-container {
   background-color: #F0F0F0;
   border-radius: 5px;
-  height: 200px;
+  height: 500px;
   padding: 10px 20px 10px 20px;
   margin: 20px 0px 20px 0px;
   box-shadow: 3px 3px 3px rgba(101, 101, 101, 0.3)
@@ -27,11 +27,9 @@
   padding: 5px;
   border-radius: 10px;
   vertical-align: middle;
-  display: inline-block;
 }
 
 .weather-text-container {
-  display: inline-block;
   vertical-align: middle;
   padding: 20px;
   font-size: 20px;
