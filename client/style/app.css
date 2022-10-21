@@ -1,31 +1,13 @@
 #root {
   font-family: system-ui;
   margin: 0px;
-  background-image: url('./Assets/weatherBG.jpeg');
+  /* background-image: url('./Assets/weatherBG.jpeg'); */
+  background-image: url("https://media.tenor.com/1KxWSlTlIZMAAAAC/clouds-anime.gif");
   background-size: cover;
   background-position: bottom;
   transition: 0.4s;
 }
 
-#root.warm{
-  font-family: system-ui;
-  margin: 0px;
-  background-image: url('./Assets/warmBG.jpeg');
-  background-size: cover;
-  background-position: bottom;
-  transition: 0.4s;
-
-}
-
-#root.cold{
-  font-family: system-ui;
-  margin: 0px;
-  background-image: url('./Assets/ColdBG.jpeg');
-  background-size: cover;
-  background-position: bottom;
-  transition: 0.4s;
-
-}
 
 #content {
   max-width: 800px;
