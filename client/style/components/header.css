@@ -4,6 +4,9 @@
 }
 
 .header-inner {
-  text-align: center;
-  font-size: 50px;
+      padding: 30px;
+      text-align: center;
+      background: transparent;
+      color: white;
+      font-size: 30px;
 }

@@ -17,6 +17,16 @@
 
 }
 
+#root.cold{
+  font-family: system-ui;
+  margin: 0px;
+  background-image: url('./Assets/ColdBG.jpeg');
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4s;
+
+}
+
 #content {
   max-width: 800px;
   min-height: 800px;

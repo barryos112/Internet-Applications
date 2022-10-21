@@ -9,44 +9,49 @@ const Search = {
 
 
   <div class="information-container">
-  <div class="information-container-inner">
-    <div class="information-hero-container">
-      <div class="weather-emoji-container">
-        🌤
-      </div>
-      <div class="weather-text-container">
-        It is currently <span style="font-weight: bold;"> cloudy </span> in Dublin. 
-
-      </div>
+    <div class="information-table-wrapper">
+        <table class="information-table">
+          <tr class="information-table-row">
+            <th class="information-table-header">Temperature</th>
+            <td class="information-table-data">20</td>
+          </tr>
+          <tr class="information-table-row">
+            <th class="information-table-header">Rainfall</th>
+            <td class="information-table-data">2mm</td>
+          </tr>
+          <tr class="information-table-row">
+            <th class="information-table-header">Wind Speed</th>
+            <td class="information-table-data">20 km/h</td>
+          </tr>
+          <tr class="information-table-row">
+            <th class="information-table-header">Air Pollution</th>
+            <td class="information-table-data">20</td>
+          </tr>
+        </table>
     </div>
-  </div>
   </div>
   `,
 
-  data(){
-    return{
-      message:"Test",
+  data() {
+    return {
+      message: "Test",
       currCity: "Dublin",
-    }
+    };
   },
 
   methods: {
     async registerCity() {
       let city = document.querySelector("search_submit").value;
       await fetch(`http://127.0.0.1:3000/weather?city=${city}`)
-      .then((res) => {
-        const data = res.text();
-        return data
-      })
-      .then((data) => {
-        console.log(data);
-        this.message = data
-        this.currCity = city;
-      })
-    }
-  }
-}
-
-
-
-
+        .then((res) => {
+          const data = res.text();
+          return data;
+        })
+        .then((data) => {
+          console.log(data);
+          this.message = data;
+          this.currCity = city;
+        });
+    },
+  },
+};

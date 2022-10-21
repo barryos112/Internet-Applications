@@ -63,7 +63,7 @@ input[type="text"] {
   font-weight: 100;
   border: none;
   outline: none;
-  color: #555;
+  color: black;
   padding: 3px;
   padding-right: 60px;
   width: 0px;
@@ -108,3 +108,4 @@ input[type="submit"] {
 input[type="submit"]:hover {
   opacity: 0.8;
 }
+
