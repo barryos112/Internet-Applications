@@ -22,8 +22,8 @@ const Search = {
             <td class="information-table-data">{{ wind_speed }} km/h</td>
           </tr>
           <tr class="information-table-row">
-            <th class="information-table-header">Air Pollution</th>
-            <td class="information-table-data">20</td>
+          <th class="information-table-header">Air Pollution <span v-if="needMask" style="font-weight: 300"> <br/>You should wear a mask! </span> </th>
+            <td class="information-table-data">{{airPollution}}</td>
           </tr>
         </table>
     </div>
@@ -37,6 +37,7 @@ const Search = {
       temperature: 8,
       weather: "Clouds",
       isRaining: false,
+      needMask: false,
     };
   },
 
@@ -44,7 +45,7 @@ const Search = {
     async searchCity() {
       let city = document.querySelector("#search-input").value;
 
-      await fetch(`http://127.0.0.1:3000/weather?city=${city}`)
+      await fetch(`http://127.0.0.1:3000/data?city=${city}`)
         .then((res) => {
           const data = res.json();
           return data;
@@ -52,14 +53,21 @@ const Search = {
         .then((data) => {
           console.log(data);
           this.currCity = city;
-          this.wind_speed = data.wind.speed;
-          this.temperature = data.main.temp;
-          this.weather = data.weather[0].main;
+          this.wind_speed = data.main_data.wind.speed;
+          this.temperature = data.main_data.main.temp;
+          this.weather = data.main_data.weather[0].main;
+          this.airPollution = data.pollution_data.list[0].components.pm2_5;
 
           if (this.weather == "Rain") {
             this.isRaining = true;
           } else {
             this.isRaining = false;
+          }
+
+          if (this.airPollution > 10) {
+            this.needMask = true;
+          } else {
+            this.needMask = false;
           }
         });
     },
