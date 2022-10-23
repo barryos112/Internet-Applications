@@ -1,42 +1,4 @@
-/* .search-container {
-  background-color: #F0F0F0;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 20px 0px 10px 0px;
-  box-shadow: 3px 3px 3px rgba(101, 101, 101, 0.3)
-}
 
-.search-input-container {
-  margin: 0 auto;
-  width: 50%;
-}
-
-.search-input {
-  text-align: center;
-  border: none;
-  border-radius: 30px;
-  width: 80%;
-  height: 20px;
-}
-
-.search-input:focus {
-  outline: none;
-}
-
-.search-button {
-  margin: 0px 0px 0px 5px;
-  background-color: white;
-  border: none;
-  border-radius: 30px;
-  height: 20px;
-  display: inline-block;
-  width: 10%;
-}
-
-.search-button:hover {
-  cursor: pointer;
-  background-color: rgb(255, 176, 80);
-} */
 
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 @import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);

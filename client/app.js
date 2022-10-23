@@ -3,12 +3,13 @@ const app = Vue.createApp({
   <Header/>
   <div id="content">
     <Search/>
+    <Information/>
   </div>
   `,
   components: {
     Header,
     Search,
-  }
+  },
 });
 
-app.mount("#app")
+app.mount("#app");
