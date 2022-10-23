@@ -48,26 +48,6 @@ const Search = {
     return {
       needUmbrella: false,
       needMask: false,
-
-      location: {
-        city: "Dublin",
-        countryCode: "IE",
-        coordinates: {
-          longitude: 19.32213,
-          latitude: 34.321447,
-        },
-      },
-      time: {
-        currDate: new Date(),
-        currTime: {
-          hours: new Date().getHours(),
-          minutes: new Date().getMinutes(),
-        },
-        solar: {
-          sunrise: "",
-          sunset: "",
-        },
-      },
       forecast: [],
     };
   },
